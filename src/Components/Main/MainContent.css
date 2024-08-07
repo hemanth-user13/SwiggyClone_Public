@@ -1,0 +1,13 @@
+.outer-container {
+  display: flex;
+  justify-content: center;
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid blue; */
+  padding: 20px;
+}
