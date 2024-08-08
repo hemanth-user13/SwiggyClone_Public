@@ -25,7 +25,7 @@ function Cards({ resdata, error, onClick }) {
               </div>
             </a>
             <div className="p-5">
-              <a href="#">
+              <a href="">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {item.img_title}
                 </h5>

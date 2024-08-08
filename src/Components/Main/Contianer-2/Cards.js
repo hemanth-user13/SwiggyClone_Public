@@ -73,7 +73,7 @@ function Cards({ resdata }) {
                 {resdata.map((item, index) => (
                     <div key={index} className="px-2">
                         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative mx-auto">
-                            <a href="#">
+                            <a href="">
                                 <div className="relative">
                                     <img className="rounded-t-lg w-full" src={item.img_url} alt={item.img_title} />
                                     <div className="absolute top-0 right-0 bg-red-600 text-white text-sm font-bold py-1 px-2 rounded-bl-lg">
@@ -82,7 +82,7 @@ function Cards({ resdata }) {
                                 </div>
                             </a>
                             <div className="p-5">
-                                <a href="#">
+                                <a href="">
                                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.img_title}</h5>
                                 </a>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">

@@ -75,7 +75,6 @@ function CitiesMain() {
                 <b>Best Places to Eat Across Cities</b>
             </div>
            <CityCard resdata={resdata} error={error}/>
-
         </div>
     </div>
   )
