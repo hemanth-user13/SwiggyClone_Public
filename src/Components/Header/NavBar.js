@@ -96,12 +96,12 @@ function Header() {
                       Offers
                     </a>
                   </Link>
-                 <Link to='/Login'>
+                 <Link to=''>
                  <a
                     href="#"
                     className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-200"
                   >
-                    Register_Test
+                    Test
                   </a>
                  </Link>
                  <Link to='/'>
@@ -109,7 +109,7 @@ function Header() {
                     href="#"
                     className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-200"
                   > */}
-                   <Signup/>
+                   {/* <Signup/> */}
                   {/* </a> */}
                  </Link>
                  <Link to='/'>
