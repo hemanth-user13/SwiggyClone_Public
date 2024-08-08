@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": "1a2b3c4d-5678-9e0f-1a2b-3c4d5e6f7g8h",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "password123"
+    },
+    {
+      "id": "6af7895d-90bb-4771-a8db-136ca4627543",
+      "name": "hemanth",
+      "email": "bolgum@omnics.in",
+      "password": "hqdqdgdgdgdgdjq"
+    },
+    {
+      "id": "e31f02e6-4a65-4294-8295-494f5bc4a453",
+      "name": "hemanth",
+      "email": "bhemanthgoud7878@gmail.com",
+      "password": "hemanth@123"
+    }
+  ],
+  "login": [
+    {
+      "user_id": "1a2b3c4d-5678-9e0f-1a2b-3c4d5e6f7g8h",
+      "user_name": "test",
+      "time": "2024-08-08T12:34:56Z",
+      "email": "test@gmail.com",
+      "id": "e081"
+    },
+    {
+      "id": "e403",
+      "user_id": "1a2b3c4d-5678-9e0f-1a2b-3c4d5e6f7g8h",
+      "user_name": "test",
+      "time": "2024-08-08T10:40:25.965Z",
+      "email": "test@gmail.com"
+    },
+    {
+      "id": "3f7d",
+      "user_id": "e31f02e6-4a65-4294-8295-494f5bc4a453",
+      "user_name": "hemanth",
+      "time": "2024-08-08T10:41:26.025Z",
+      "email": "bhemanthgoud7878@gmail.com"
+    },
+    {
+      "id": "d26a",
+      "user_id": "e31f02e6-4a65-4294-8295-494f5bc4a453",
+      "user_name": "hemanth",
+      "time": "2024-08-08T10:46:40.216Z",
+      "email": "bhemanthgoud7878@gmail.com"
+    },
+    {
+      "id": "bec7",
+      "user_id": "e31f02e6-4a65-4294-8295-494f5bc4a453",
+      "user_name": "hemanth",
+      "time": "2024-08-08T10:48:57.815Z",
+      "email": "bhemanthgoud7878@gmail.com"
+    }
+  ]
+}
