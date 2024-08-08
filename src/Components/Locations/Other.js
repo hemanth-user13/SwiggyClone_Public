@@ -12,7 +12,7 @@ function Other() {
   };
 
 //   console.log("The selected city is", city);
-  console.log("The latitude and longitude are", [maplat, maplng]);
+  // console.log("The latitude and longitude are", [maplat, maplng]);
 
   return (
     <div>

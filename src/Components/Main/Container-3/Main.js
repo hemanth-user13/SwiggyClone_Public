@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 let data = [
@@ -793,16 +793,7 @@ let data = [
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/3/14/fefae94a-53cd-421c-9f1f-d0f642949728_2ddc8be1-0a65-430d-9de8-542fae4ce739.jpg",
         item_discription:
           "4 Crispy Veg + 2 Medium Fries Qty: 728 Gms| Kcal: 2101.2 | Carbs 1068.1 Gms| Sugar: 29.9 Gms| Fat: 89.2 Gms| Saturated fat: 32.7 Gms| Protein: 57.6 Gms| Sodium: 3427.2 Mg Contains: Gluten, Soybean , Milk , Sesame seeds",
-      },
-      {
-        id: 8,
-        item_Name: "Coca Cola Medium",
-        item_price: 399,
-        item_img:
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2024/4/4/c9494d62-a7f7-4976-9d1f-df89dd26b183_6853c1b4-f67d-42ba-a02e-076d9bfbc5a4.jpg",
-        item_discription:
-          "Cola. Kcal: 190.1 | Carbs 52 Gms| Sugar: 52 Gms| Fat: 0 Gms| Saturated fat: 0 Gms| Protein: 0 Gms| Sodium: 38",
-      },
+      }
     ],
     discount: "20% OFF UPTO ₹50",
   },
@@ -830,7 +821,7 @@ function Main() {
 
   const handleButtonid = (id) => {
     const selectedCard = resdata.find((item) => item.id === id);
-    console.log("these is the selected card", selectedCard);
+    // console.log("these is the selected card", selectedCard);
 
     navigate(`/menu/${id}`, { state: selectedCard });
   };
