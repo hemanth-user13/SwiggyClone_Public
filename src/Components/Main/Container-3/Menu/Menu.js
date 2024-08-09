@@ -5,6 +5,7 @@ import MenuCard from './MenuCard'
 import '../../MainContent.css';
 import Search from '../../../Header/SearchBar'
 import SearchBar from "../../../Header/SearchBar";
+import Footer from '../../../Footer/Footer'
 
 
 function Menu() {
@@ -50,6 +51,7 @@ function Menu() {
           <MenuCard item={item}/>
         </div>
       ))}
+      <Footer/>
       </div>
       </div>
    

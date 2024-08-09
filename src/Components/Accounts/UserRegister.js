@@ -28,11 +28,10 @@ const validationSchema = Yup.object({
 
 // const USERDATAURL = "http://localhost:8000/users"
  
-
-
-
+const HOST_USER_URL="https://usermanagement-kbe1.onrender.com/users"
+const LOCAl_HOSt_URl="http://localhost:8000/users"
 const onSubmit = async (values) => {
-  const REGISTER_URL = 'http://localhost:8000/users';
+  const REGISTER_URL = HOST_USER_URL;
 
   try {
     const response = await axios.post(REGISTER_URL, values);
