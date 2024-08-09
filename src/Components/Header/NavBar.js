@@ -96,12 +96,12 @@ function Header() {
                       Offers
                     </a>
                   </Link>
-                 <Link to=''>
+                 <Link to='/sign'>
                  <a
                     href="#"
                     className="rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-200"
                   >
-                    Test
+                    Mobile
                   </a>
                  </Link>
                  <Link to='/'>
