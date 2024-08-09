@@ -9,13 +9,20 @@ import Image from '../../assests/logo.png';
 
 
 
+
+const HOST_USER_URL="https://usermanagement-kbe1.onrender.com/users";
+const LOCAL_USER_URL="http://localhost:8000/users"
+
+
+const HOST_LOGIN_URL="https://usermanagement-kbe1.onrender.com/login";
+const LOCAL_LOGIN_URL="http://localhost:8000/login"
 function UserLogin({ onLogin }) {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
 
-    const USERDATAURL = "http://localhost:8000/users";
+    const USERDATAURL = HOST_USER_URL;
 
     const getUserData = async () => {
         try {
@@ -49,7 +56,7 @@ function UserLogin({ onLogin }) {
                     email: user.email,
                 };
 
-                await axios.post("http://localhost:8000/login", loginDetails);
+                await axios.post(HOST_LOGIN_URL, loginDetails);
 
                 onLogin(true); 
                 navigate(`/dashboard/id=${user.id}`);

@@ -18,8 +18,11 @@ function Test() {
       password,
     };
 
+
+    const VERCEL_URL="https://usermanagement-kbe1.onrender.com/users";
+    const LOCAL_URL="http://localhost:8000/users";
     try {
-      const response = await axios.post('http://localhost:8000/users', newUser);
+      const response = await axios.post(VERCEL_URL, newUser);
       console.log('User registered successfully:', response.data);
     } catch (error) {
       console.error('Error registering user:', error);
