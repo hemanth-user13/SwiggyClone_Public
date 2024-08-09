@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 // import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 
 let data = [
   {
@@ -799,10 +799,15 @@ let data = [
   },
 ];
 
+
 function Main() {
   const [resdata, setData] = useState([]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  
+  const {id}=useParams();
+  const user_id=id
+  console.log("the user id is ",user_id||null)
 
   const getData = () => {
     try {
@@ -820,10 +825,12 @@ function Main() {
   }, []);
 
   const handleButtonid = (id) => {
+    
     const selectedCard = resdata.find((item) => item.id === id);
+    
     // console.log("these is the selected card", selectedCard);
 
-    navigate(`/menu/${id}`, { state: selectedCard });
+    navigate(`/menu/res_id=${id}`, { state: selectedCard });
   };
 
   return (

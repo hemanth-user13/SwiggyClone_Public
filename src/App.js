@@ -5,8 +5,9 @@ import Search from './Components/Header/Searchitems';
 import Offers from './Components/Header/Offers';
 import Menu from './Components/Main/Container-3/Menu/Menu'; 
 import UserLogin from './Components/Accounts/UserLogin';
-import UserRegister from './Components/Accounts/UserRegister';
-import PageNotFound from './Components/Error/Error'
+import UserRegister from './Components/Accounts/test';
+import PageNotFound from './Components/Error/Error';
+import DashboardSign from './Components/Accounts/Login'
 
 function App() {
     const handleLogin = (isLoggedIn) => {
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/search" element={<Search />} />
                 <Route path="/offers" element={<Offers />} />
                 <Route path="/menu/:id" element={<Menu />} />
+                <Route Path="/sign" element={<DashboardSign/>}/>
                 <Route path="/" element={<UserLogin onLogin={handleLogin} />} />
                 <Route path="/register" element={<UserRegister />} />
                 <Route path='*' element={<PageNotFound/>}/>

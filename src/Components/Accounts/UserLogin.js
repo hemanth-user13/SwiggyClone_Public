@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import '../Toaster/toastify.css';
 import Image from '../../assests/logo.png'; 
+
+
+
 
 function UserLogin({ onLogin }) {
     const [username, setUserName] = useState("");
@@ -26,6 +32,7 @@ function UserLogin({ onLogin }) {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        const LoginToaster = () => toast.success("Login successful!");
         try {
             if (!users || users.length === 0) {
                 console.error('No users data found');
@@ -45,7 +52,9 @@ function UserLogin({ onLogin }) {
                 await axios.post("http://localhost:8000/login", loginDetails);
 
                 onLogin(true); 
-                navigate(`/dashboard/${user.id}`);
+                navigate(`/dashboard/id=${user.id}`);
+                LoginToaster()
+
             } else {
                 alert('Invalid username or password');
             }
@@ -103,7 +112,9 @@ function UserLogin({ onLogin }) {
                         </form>
                     </div>
                     <div className="lg:h-[400px] md:h-[300px] max-md:mt-8">
-                        <img src={Image} className="w-full h-full max-md:w-4/5 mx-auto block object-cover" alt="Dining Experience" />
+                    <img src={Image} className="w-full h-full max-md:w-4/5 mx-auto block object-cover rounded-full animate-flip" alt="Dining Experience" />
+
+
                     </div>
                     <span className="text-lg text-gray-500 sm:text-left dark:text-gray-400" style={{"marginTop":"100px","marginLeft":"50px"}}>
                         © 2024{" "}
@@ -114,6 +125,7 @@ function UserLogin({ onLogin }) {
                     </span>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 }
