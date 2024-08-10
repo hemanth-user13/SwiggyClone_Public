@@ -1,52 +1,51 @@
-import React from 'react';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
-import Image from '../../assests/logo.png';
-import { Link } from 'react-router-dom';
+import React from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import Image from "../../assests/logo.png";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import '../Toaster/toastify.css';
+import "../Toaster/toastify.css";
 import { redirect } from "react-router-dom";
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Signup = () => toast.success("Sign up successful!");
 
 const initialValues = {
   id: uuidv4(),
-  name: '',
-  email: '',
-  password: '',
+  name: "",
+  email: "",
+  password: "",
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email format').required('Required'),
-  password: Yup.string().required('Required'),
+  name: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email format").required("Required"),
+  password: Yup.string().required("Required"),
 });
 
-
 // const USERDATAURL = "http://localhost:8000/users"
- 
-const HOST_USER_URL="https://usermanagement-kbe1.onrender.com/users"
-const LOCAl_HOSt_URl="http://localhost:8000/users"
+
+let HOST_USER_URL = "https://usermanagement-kbe1.onrender.com/users";
+const LOCAl_HOSt_URl = "http://localhost:8000/users";
 const onSubmit = async (values) => {
-  const REGISTER_URL = HOST_USER_URL;
+  let REGISTER_URL = HOST_USER_URL;
 
   try {
     const response = await axios.post(REGISTER_URL, values);
-    console.log("the user data is", values)
+    console.log("the user data is", values);
     if (response.data.name && response.data.email === "") {
-      toast.error('Username already exists');
-      console.log(response.data.name, response.data.email)
+      toast.error("Username already exists");
+      console.log(response.data.name, response.data.email);
     } else {
-      console.log('User registered successfully', response.data);
+      console.log("User registered successfully", response.data);
       Signup();
-      redirect('/');
+      redirect("/");
     }
   } catch (error) {
-    console.error('There is an error in the code', error);
-    toast.error('There was an error with your registration');
+    console.error("There is an error in the code", error);
+    toast.error("There was an error with your registration");
   }
 };
 
@@ -64,7 +63,6 @@ function Test() {
   //   GetData()
   // },[])
 
-
   return (
     <div className="font-[sans-serif] bg-white md:h-screen">
       <div className="grid md:grid-cols-2 items-center gap-8 h-full">
@@ -75,7 +73,7 @@ function Test() {
             alt="login-image"
           />
           <span className="text-lg text-gray-500 sm:text-center dark:text-gray-400">
-            © 2024{' '}
+            © 2024{" "}
             <a href="https://flowbite.com" className="hover:underline">
               TestCode™
             </a>
@@ -84,7 +82,10 @@ function Test() {
         </div>
 
         <div className="flex items-center p-6 h-full w-full">
-          <form className="max-w-lg w-full mx-auto" onSubmit={formik.handleSubmit}>
+          <form
+            className="max-w-lg w-full mx-auto"
+            onSubmit={formik.handleSubmit}
+          >
             <div className="mb-12">
               <h3 className="text-orange-500 md:text-3xl text-2xl font-extrabold max-md:text-center">
                 Create an account
@@ -92,18 +93,20 @@ function Test() {
             </div>
 
             <div>
-              <label className="text-gray-800 text-xs block mb-2">Full Name</label>
+              <label className="text-gray-800 text-xs block mb-2">
+                Full Name
+              </label>
               <div className="relative flex items-center">
                 <input
                   name="name"
                   type="text"
                   id="name"
-                  {...formik.getFieldProps('name')}
+                  {...formik.getFieldProps("name")}
                   className="w-full bg-transparent text-sm border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
                   placeholder="Enter name"
                 />
                 {formik.touched.name && formik.errors.name ? (
-                  <div style={{ color: 'red' }}>{formik.errors.name}</div>
+                  <div style={{ color: "red" }}>{formik.errors.name}</div>
                 ) : null}
               </div>
             </div>
@@ -115,29 +118,31 @@ function Test() {
                   name="email"
                   type="email"
                   id="email"
-                  {...formik.getFieldProps('email')}
+                  {...formik.getFieldProps("email")}
                   className="w-full bg-transparent text-sm border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
                   placeholder="Enter email"
                 />
                 {formik.touched.email && formik.errors.email ? (
-                  <div style={{ color: 'red' }}>{formik.errors.email}</div>
+                  <div style={{ color: "red" }}>{formik.errors.email}</div>
                 ) : null}
               </div>
             </div>
 
             <div className="mt-6">
-              <label className="text-gray-800 text-xs block mb-2">Password</label>
+              <label className="text-gray-800 text-xs block mb-2">
+                Password
+              </label>
               <div className="relative flex items-center">
                 <input
                   name="password"
                   id="password"
                   type="password"
-                  {...formik.getFieldProps('password')}
+                  {...formik.getFieldProps("password")}
                   className="w-full bg-transparent text-sm border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
                   placeholder="Enter password"
                 />
                 {formik.touched.password && formik.errors.password ? (
-                  <div style={{ color: 'red' }}>{formik.errors.password}</div>
+                  <div style={{ color: "red" }}>{formik.errors.password}</div>
                 ) : null}
               </div>
             </div>
