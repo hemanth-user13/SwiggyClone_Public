@@ -51,7 +51,7 @@ function Menu() {
           <MenuCard item={item}/>
         </div>
       ))}
-      <Footer/>
+      
       </div>
       </div>
    
@@ -63,7 +63,7 @@ function Menu() {
           <MenuCard item={item}/>
         </div>
       ))} */}
-
+<Footer/>
     </div>
   );
 }
