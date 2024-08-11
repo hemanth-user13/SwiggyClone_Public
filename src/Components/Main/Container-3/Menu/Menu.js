@@ -43,7 +43,7 @@ function Menu() {
       <p>the selected resturant image is {img_url}</ p> */}
       <div className="outer-container">
       <div className="container">
-      <h4 className="text-center text-4xl">Menu</h4>
+      <h4 className="text-center text-4xl">Today's Menu</h4>
       <SearchBar/>
       <p className="text-2xl"><strong>Recommended <b style={{color:"red"}}>{count}</b> Items</strong></p>
       {ResturantMenu.map((item,index)=>(
