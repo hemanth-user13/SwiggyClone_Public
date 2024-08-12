@@ -64,6 +64,8 @@ function UserLogin({ onLogin }) {
       }
     } catch (error) {
       console.error("Error during login:", error);
+    } finally {
+      setLogin(false);
     }
   };
 
