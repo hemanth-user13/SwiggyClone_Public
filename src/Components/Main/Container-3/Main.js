@@ -804,10 +804,12 @@ function Main() {
   const [resdata, setData] = useState([]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const {user_id}=useParams()
   
-  const {id}=useParams();
-  const user_id=id
-  console.log("the user id is ",user_id||null)
+  
+  // const {user_id}=useParams();
+  // // const user_id=id
+  // console.log("the user id is ",user_id||null)
 
   const getData = () => {
     try {
@@ -823,14 +825,22 @@ function Main() {
   useEffect(() => {
     getData();
   }, []);
-
+  useEffect(()=>{
+    if(user_id){
+      localStorage.setItem("user_id", user_id);
+    }
+  })
   const handleButtonid = (id) => {
+    // const data= Userid()
+    // console.log(data)
+    console.log("User ID:", user_id);
+    
     
     const selectedCard = resdata.find((item) => item.id === id);
     
     // console.log("these is the selected card", selectedCard);
 
-    navigate(`/menu/res_id=${id}`, { state: selectedCard });
+    navigate(`/menu/res_id=${id}/`, { state: selectedCard });
   };
 
   return (

@@ -5,7 +5,8 @@ import MenuCard from './MenuCard'
 import '../../MainContent.css';
 import Search from '../../../Header/SearchBar'
 import SearchBar from "../../../Header/SearchBar";
-import Footer from '../../../Footer/Footer'
+import Footer from '../../../Footer/Footer';
+import BackButton from '../../../Accounts/BackButton';
 
 
 function Menu() {
@@ -32,7 +33,7 @@ function Menu() {
 
   // const [img_url] =location.state || {};
 
-  const count=ResturantMenu.length
+  const count=ResturantMenu?ResturantMenu.length:null
 
   return (
     <div>
@@ -45,12 +46,15 @@ function Menu() {
       <div className="container">
       <h4 className="text-center text-4xl">Today's Menu</h4>
       <SearchBar/>
+      <div style={{"marginBottom":"50px"}}>
+      <BackButton/>
+      </div>
       <p className="text-2xl"><strong>Recommended <b style={{color:"red"}}>{count}</b> Items</strong></p>
-      {ResturantMenu.map((item,index)=>(
+      {ResturantMenu?ResturantMenu.map((item,index)=>(
         <div key={index}>
           <MenuCard item={item}/>
         </div>
-      ))}
+      )):null}
       
       </div>
       </div>
