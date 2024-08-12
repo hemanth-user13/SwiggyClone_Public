@@ -8,6 +8,7 @@ import UserLogin from "./Components/Accounts/UserLogin";
 import UserRegister from "./Components/Accounts/UserRegister";
 import PageNotFound from "./Components/Error/Error";
 import DashboardSign from "./Components/Accounts/Login";
+import Cart from './Components/Main/Container-3/Menu/Cart'
 // testing app.js
 function App() {
   const handleLogin = (isLoggedIn) => {
@@ -17,10 +18,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/dashboard/:id" element={<Clone />} />
+        <Route path="/dashboard/:user_id" element={<Clone />} />
         <Route path="/search" element={<Search />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/menu/:id" element={<Menu />} />
+        <Route path="/cart" element={<Cart/>}/>
         <Route Path="/sign" element={<DashboardSign />} />
         <Route path="/" element={<UserLogin onLogin={handleLogin} />} />
         <Route path="/register" element={<UserRegister />} />

@@ -22,11 +22,12 @@ function UserLogin({ onLogin }) {
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
 
-    const USERDATAURL = HOST_USER_URL;
+    const USERDATAURL = LOCAL_USER_URL;
 
     const getUserData = async () => {
         try {
             const response = await axios.get(USERDATAURL);
+            console.log(response)
             setUsers(response.data); 
         } catch (error) {
             console.error('Error fetching user data:', error);
@@ -56,7 +57,7 @@ function UserLogin({ onLogin }) {
                     email: user.email,
                 };
 
-                await axios.post(HOST_LOGIN_URL, loginDetails);
+                await axios.post(LOCAL_LOGIN_URL, loginDetails);
 
                 onLogin(true); 
                 navigate(`/dashboard/id=${user.id}`);
