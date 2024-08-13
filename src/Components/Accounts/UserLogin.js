@@ -7,22 +7,20 @@ import "../Toaster/toastify.css";
 import Image from "../../assests/logo.png";
 
 const HOST_USER_URL = "https://usermanagement-kbe1.onrender.com/users";
-const LOCAL_USER_URL = "http://localhost:8000/users";
-
 const HOST_LOGIN_URL = "https://usermanagement-kbe1.onrender.com/login";
-const LOCAL_LOGIN_URL = "http://localhost:8000/login";
+
 function UserLogin({ onLogin }) {
-  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
-  const USERDATAURL = HOST_USER_URL;
+  const ADMIN_EMAIL = "bolgum@omnics.in";
+  const ADMIN_PASSWORD = "hemanth@123";
 
   const getUserData = async () => {
     try {
-      const response = await axios.get(USERDATAURL);
-      console.log(response);
+      const response = await axios.get(HOST_USER_URL);
       setUsers(response.data);
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -35,15 +33,17 @@ function UserLogin({ onLogin }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const LoginToaster = () => toast.success("Login successful!");
+
     try {
-      if (!users || users.length === 0) {
-        console.error("No users data found");
+      if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        onLogin(true);
+        navigate(`/adminDasboard`);
+        toast.success("Admin login successful!");
         return;
       }
 
       const user = users.find(
-        (user) => user.name === username && user.password === password
+        (user) => user.email === email && user.password === password
       );
 
       if (user) {
@@ -58,12 +58,13 @@ function UserLogin({ onLogin }) {
 
         onLogin(true);
         navigate(`/dashboard/id=${user.id}`);
-        LoginToaster();
+        toast.success("User login successful!");
       } else {
-        alert("Invalid username or password");
+        toast.error("Invalid email or password");
       }
     } catch (error) {
       console.error("Error during login:", error);
+      toast.error("An error occurred during login");
     }
   };
 
@@ -85,17 +86,17 @@ function UserLogin({ onLogin }) {
 
               <div>
                 <label className="text-gray-800 text-sm mb-2 block">
-                  Username
+                  Email
                 </label>
                 <div className="relative flex items-center">
                   <input
-                    name="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUserName(e.target.value)}
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600"
-                    placeholder="Enter Username"
+                    placeholder="Enter Your Email"
                   />
                 </div>
               </div>

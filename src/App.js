@@ -8,6 +8,8 @@ import UserLogin from "./Components/Accounts/UserLogin";
 import UserRegister from "./Components/Accounts/UserRegister";
 import PageNotFound from "./Components/Error/Error";
 import DashboardSign from "./Components/Accounts/Login";
+import AdminDashboard from './Components/Admin/Admin_dashboard';
+import AddResturants from './Components/Admin/features/AddResturants'
 import Cart from './Components/Main/Container-3/Menu/Cart'
 // testing app.js
 function App() {
@@ -18,6 +20,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/adminDasboard" element={<AdminDashboard/>}/>
+        <Route path="/addresturants" element={<AddResturants/>}/>
         <Route path="/dashboard/:user_id" element={<Clone />} />
         <Route path="/search" element={<Search />} />
         <Route path="/offers" element={<Offers />} />
