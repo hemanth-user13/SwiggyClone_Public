@@ -10,7 +10,8 @@ import PageNotFound from "./Components/Error/Error";
 import DashboardSign from "./Components/Accounts/Login";
 import AdminDashboard from './Components/Admin/Admin_dashboard';
 import AddResturants from './Components/Admin/features/AddResturants'
-import Cart from './Components/Main/Container-3/Menu/Cart'
+import Cart from './Components/Main/Container-3/Menu/Cart';
+import ResTable from './Components/Admin/features/ResturantData'
 // testing app.js
 function App() {
   const handleLogin = (isLoggedIn) => {
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/adminDasboard" element={<AdminDashboard/>}/>
         <Route path="/addresturants" element={<AddResturants/>}/>
+        <Route path="/resturantDatatable" element={<ResTable/>}/>
         <Route path="/dashboard/:user_id" element={<Clone />} />
         <Route path="/search" element={<Search />} />
         <Route path="/offers" element={<Offers />} />

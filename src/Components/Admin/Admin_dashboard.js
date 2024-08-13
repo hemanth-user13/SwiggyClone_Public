@@ -58,6 +58,15 @@ function Admin_dashboard() {
               ADD RESTURANTS
             </Link>
           </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-4">View Resturants</h2>
+            <p className="text-gray-700 mb-4">
+              Till the Resturant count is 100
+            </p>
+            <Link to="/resturantDatatable" className="text-orange-500 hover:underline">
+              Check the Resturants  
+            </Link>
+          </div>
         </div>
       </main>
       </div>
