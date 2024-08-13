@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 
 const initialState = {
