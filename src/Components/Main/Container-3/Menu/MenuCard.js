@@ -1,21 +1,21 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from './cartSlice'; 
 import { useParams } from 'react-router-dom';
-import BackButton from '../../../Accounts/BackButton'
+import BackButton from '../../../Accounts/BackButton';
+import LeftDrawer from '../../../Header/LeftDrawer';
 
 function MenuCard({ item }) {
     const [count, setCount] = useState(0);
-    const {id}=useParams()
+    const [isToogleOpen, setIsTooggleOpen] = useState(false);
+    const { id } = useParams();
     const dispatch = useDispatch(); 
-    // console.log("the resturant id is ",id)
-    const res_id=id.charAt(id.length-1);
-    console.log(res_id)
-    // console.log(typeof(id));
-   
+
+    const res_id = id.charAt(id.length - 1);
 
     const handleAddClick = () => {
         setCount(1);
+        setIsTooggleOpen(true);
         dispatch(addItemToCart({
             item_id: item.id,
             resturant_id: res_id,
@@ -28,6 +28,7 @@ function MenuCard({ item }) {
 
     const handleIncrement = () => {
         setCount(prevCount => prevCount + 1);
+        setIsTooggleOpen(true);
         dispatch(addItemToCart({
             item_id: item.id,
             resturant_id: item.resturant_id,
@@ -43,8 +44,8 @@ function MenuCard({ item }) {
             setCount(prevCount => prevCount - 1);
         } else {
             setCount(0);
-            
         }
+        setIsTooggleOpen(true);
     };
 
     return (
@@ -78,10 +79,11 @@ function MenuCard({ item }) {
                             onClick={handleIncrement} 
                             className="text-green-500 font-bold text-xl">
                             +
-                        </button>
-                    </div>
+                        </button> 
+                    </div> 
                 )}
             </div>
+            {/* {isToogleOpen && <LeftDrawer />} */}
         </div>
     );
 }
