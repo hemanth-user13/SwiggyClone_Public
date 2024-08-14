@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "../Toaster/toastify.css";
+import Swal from 'sweetalert2';
 import Image from "../../assests/logo.png";
+import "../Toaster/toastify.css";
 
 const HOST_USER_URL = "https://usermanagement-kbe1.onrender.com/users";
 const HOST_LOGIN_URL = "https://usermanagement-kbe1.onrender.com/login";
@@ -35,13 +34,21 @@ function UserLogin({ onLogin }) {
     e.preventDefault();
 
     try {
+      // Admin login check
       if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
         onLogin(true);
         navigate(`/adminDasboard`);
-        toast.success("Admin login successful!");
+        
+        Swal.fire({
+          icon: "success",
+          title: "Admin login successful!",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         return;
       }
 
+      // Check if the user exists in the users list
       const user = users.find(
         (user) => user.email === email && user.password === password
       );
@@ -58,13 +65,39 @@ function UserLogin({ onLogin }) {
 
         onLogin(true);
         navigate(`/dashboard/id=${user.id}`);
-        toast.success("User login successful!");
+        
+        // Show success Swal for user login
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully"
+        });
       } else {
-        toast.error("Invalid email or password");
+        // Show error Swal for invalid credentials
+        Swal.fire({
+          icon: "error",
+          title: "Invalid email or password",
+          showConfirmButton: true,
+        });
       }
     } catch (error) {
       console.error("Error during login:", error);
-      toast.error("An error occurred during login");
+      // Show error Swal for any login error
+      Swal.fire({
+        icon: "error",
+        title: "An error occurred during login",
+        showConfirmButton: true,
+      });
     }
   };
 
@@ -182,7 +215,6 @@ function UserLogin({ onLogin }) {
           </span>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }

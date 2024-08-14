@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import axios from 'axios';
+import { removeItemFromCart } from '../Main/Container-3/Menu/cartSlice';
 
 function LeftDrawer() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { cartItems, totalAmount } = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
 
+
+    const handleRemoveClick = (item_id) => {
+        dispatch(removeItemFromCart({ item_id }));
+    };
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -16,22 +22,22 @@ function LeftDrawer() {
         console.log("the data in the left drawer is", data)
 
 
-        const ItemSelected="https://usermanagement-kbe1.onrender.com/Itemselected";
-        const PostData=await axios.post(ItemSelected,data)
+        const ItemSelected = "https://usermanagement-kbe1.onrender.com/Itemselected";
+        const PostData = await axios.post(ItemSelected, data)
         console.log(PostData)
     }
 
 
 
     return (
-        <div className="text-center">
+        <div className="text-center ">
             <button
                 type="button"
                 className="rounded-md mx-10 px-3 py-2 text-sm font-medium text-black hover:bg-gray-200"
                 aria-controls="drawer-example"
                 onClick={toggleMobileMenu}
             >
-                Mobile
+                Left Drawer
             </button>
             <div
                 id="drawer-example"
@@ -92,9 +98,11 @@ function LeftDrawer() {
                                             ₹ {item.totalPrice}
                                         </p>
                                     </div>
+                                   
                                 </div>
                             ))}
                             <p className="text-2xl font-bold">Total Amount: ₹ {totalAmount}</p>
+
                             <button
                                 onClick={handledata}
                                 className="bg-green-500 text-white px-4 py-2 rounded-lg mt-4 ml-4 hover:bg-green-700"
