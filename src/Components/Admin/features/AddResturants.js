@@ -6,9 +6,18 @@ import "react-toastify/dist/ReactToastify.css";
 import BackButton from "../../Accounts/BackButton";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import AdminDashboard from '../Admin_Navbar'
+import AdminDashboard from '../Admin_Navbar';
+import Swal from 'sweetalert2';
 
 const RESTURANT_URL = "https://usermanagement-kbe1.onrender.com/restaurants";
+
+// const SuccessToast=Swal.fire({
+//     position: "top-end",
+//     icon: "success",
+//     title: "Your work has been saved",
+//     showConfirmButton: false,
+//     timer: 1500
+//   });
 
 // Validation schema for the form
 const validationSchema = Yup.object({
@@ -24,18 +33,27 @@ const initialValues = {
 };
 
 function Demo() {
-    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    // const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     const onSubmit = async (values, { resetForm }) => {
         try {
             const response = await axios.post(RESTURANT_URL, values);
             console.log("The restaurant data response is", response);
-            setShowSuccessModal(true);
-            toast.success("Item added successfully!");
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Resturant has added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
             resetForm(); 
         } catch (error) {
             console.log("There is an error in the code", error);
-            toast.error("An error occurred while adding the restaurant.");
+            Swal.fire({
+                title: "Error!",
+                text: "An error occurred while deleting the restaurant.",
+                icon: "error"
+            });
         }
     };
 
@@ -48,7 +66,7 @@ function Demo() {
     return (
         <>
         <AdminDashboard/>
-        <div className="p-8 max-w-4xl mx-auto bg-orange-50 rounded-lg shadow-lg space-y-6">
+        <div className="my-40 p-8 max-w-4xl mx-auto bg-orange-50 rounded-lg shadow-lg space-y-6">
             <h2 className="text-3xl font-extrabold text-orange-700 mb-4">
                 Add Restaurant
             </h2>
@@ -107,19 +125,7 @@ function Demo() {
                 </button>
             </form>
 
-            {/* Success Modal */}
-            {showSuccessModal && (
-                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
-                        <img src={Gif} alt="Success" className="mx-auto mb-4" />
-                        <h3 className="text-xl font-semibold text-green-600">Success!</h3>
-                        <p className="text-gray-700">Restaurant added successfully.</p>
-                        {/* <Link to="/restaurants" className="text-blue-600 underline">
-                            Go to Restaurants
-                        </Link> */}
-                    </div>
-                </div>
-            )}
+           
         </div>
         </>
     );

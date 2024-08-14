@@ -30,7 +30,7 @@ function Cart() {
   return (
    <>
     <Navbar/>
-    <div className="container mx-auto p-4">
+    <div className="container  p-4 mx-auto">
       <h2 className="text-3xl font-bold text-center mb-6">Your Cart</h2>
       <BackButton />
       {cartItems.length === 0 ? (
