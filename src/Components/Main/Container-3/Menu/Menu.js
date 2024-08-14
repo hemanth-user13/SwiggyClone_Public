@@ -7,12 +7,16 @@ import Search from '../../../Header/SearchBar'
 import SearchBar from "../../../Header/SearchBar";
 import Footer from '../../../Footer/Footer';
 import BackButton from '../../../Accounts/BackButton';
+import { useSelector } from "react-redux";
+
 
 
 function Menu() {
   // const[data,setData]=useState([]);
   // const[error,setError]=useState("");
-  
+  // const { cartItems, totalAmount } = useSelector((state) => state.cart);
+  // const data=[...cartItems];
+  // console.log("the test1 datais ",data)
 
 
   const { id } = useParams();
@@ -47,7 +51,7 @@ function Menu() {
       <h4 className="text-center text-4xl">Today's Menu</h4>
       <SearchBar/>
       <div style={{"marginBottom":"50px"}}>
-      <BackButton/>
+      {/* <BackButton/> */}
       </div>
       <p className="text-2xl"><strong>Recommended <b style={{color:"red"}}>{count}</b> Items</strong></p>
       {ResturantMenu?ResturantMenu.map((item,index)=>(

@@ -1,6 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 function LeftCart() {
+    const {cartItems,totalamount}=useSelector((state)=>state.cart)
+
+
+    const data=[...cartItems];
+    console.log("the data to the right cart is ",data)
     return (
         <div>
             <div class="text-center">

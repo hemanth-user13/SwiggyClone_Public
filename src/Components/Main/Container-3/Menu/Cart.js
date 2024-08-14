@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeItemFromCart, clearCart } from "./cartSlice";
 import axios from "axios";
 import BackButton from "../../../Accounts/BackButton";
+import Navbar from '../../../Header/NavBar';
 
 function Cart() {
   const { cartItems, totalAmount } = useSelector((state) => state.cart);
@@ -27,6 +28,8 @@ function Cart() {
   };
 
   return (
+   <>
+    <Navbar/>
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold text-center mb-6">Your Cart</h2>
       <BackButton />
@@ -80,6 +83,7 @@ function Cart() {
         </div>
       )}
     </div>
+   </>
   );
 }
 
