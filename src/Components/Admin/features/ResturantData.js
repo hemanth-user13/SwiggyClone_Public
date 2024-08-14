@@ -81,13 +81,13 @@ function ResturantData() {
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-end space-x-2">
                                                         <button
-                                                            className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                                                            className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-red-700"
                                                             onClick={() => handleDelete(item.id)}
                                                         >
                                                             Delete
                                                         </button>
                                                         <button
-                                                            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                                                            className="px-4 py-2 bg-slate-50 text-gray-500 rounded-md hover:bg-gray-400"
                                                             onClick={() => handleEdit(item.id)}
                                                         >
                                                             Edit
